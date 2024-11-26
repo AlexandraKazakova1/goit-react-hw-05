@@ -40,7 +40,6 @@ export const searchMovies = async (query) => {
 export const getMovieDetails = async (movieId) => {
   return fetchData(`/movie/${movieId}`, {
     headers: {
-      accept: 'application/json',
       Authorization: ACCESS_TOKEN,
     },
   });
@@ -49,7 +48,6 @@ export const getMovieDetails = async (movieId) => {
 export const getMovieCredits = async (movieId) => {
   return fetchData(`/movie/${movieId}/credits`, {
     headers: {
-      accept: 'application/json',
       Authorization: ACCESS_TOKEN,
     },
   });
@@ -58,7 +56,6 @@ export const getMovieCredits = async (movieId) => {
 export const getMovieReviews = async (movieId) => {
   return fetchData(`/movie/${movieId}/reviews`, {
     headers: {
-      accept: 'application/json',
       Authorization: ACCESS_TOKEN,
     },
   });

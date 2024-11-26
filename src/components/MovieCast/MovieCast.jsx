@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from '../../services/api';
-
+import s from './MovieCast.module.css';
 const defaultImg =
   'https://dummyimage.com/200x300/cdcdcd/000.jpg&text=No+photo';
 
