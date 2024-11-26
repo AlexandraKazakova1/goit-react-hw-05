@@ -38,27 +38,15 @@ export const searchMovies = async (query) => {
 };
 
 export const getMovieDetails = async (movieId) => {
-  return fetchData(`/movie/${movieId}`, {
-    headers: {
-      Authorization: ACCESS_TOKEN,
-    },
-  });
+  return fetchData(`/movie/${movieId}`);
 };
 
 export const getMovieCredits = async (movieId) => {
-  return fetchData(`/movie/${movieId}/credits`, {
-    headers: {
-      Authorization: ACCESS_TOKEN,
-    },
-  });
+  return fetchData(`/movie/${movieId}/credits`);
 };
 
 export const getMovieReviews = async (movieId) => {
-  return fetchData(`/movie/${movieId}/reviews`, {
-    headers: {
-      Authorization: ACCESS_TOKEN,
-    },
-  });
+  return fetchData(`/movie/${movieId}/reviews`);
 };
 
 export default {
