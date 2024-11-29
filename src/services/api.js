@@ -24,11 +24,11 @@ const fetchData = async (endpoint, params = {}) => {
   }
 };
 
-const getTrendingMovies = async () => {
+export const getTrendingMovies = async () => {
   return fetchData('/trending/movie/day');
 };
 
-const searchMovies = async (query) => {
+export const searchMovies = async (query) => {
   return fetchData('/search/movie', {
     query,
     include_adult: false,
@@ -37,15 +37,15 @@ const searchMovies = async (query) => {
   });
 };
 
-const getMovieDetails = async (movieId) => {
+export const getMovieDetails = async (movieId) => {
   return fetchData(`/movie/${movieId}`);
 };
 
-const getMovieCredits = async (movieId) => {
+export const getMovieCredits = async (movieId) => {
   return fetchData(`/movie/${movieId}/credits`);
 };
 
-const getMovieReviews = async (movieId) => {
+export const getMovieReviews = async (movieId) => {
   return fetchData(`/movie/${movieId}/reviews`);
 };
 
