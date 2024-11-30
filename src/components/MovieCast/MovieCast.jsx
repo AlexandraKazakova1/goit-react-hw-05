@@ -15,7 +15,7 @@ const MovieCast = () => {
     const fetchCast = async () => {
       try {
         const castData = await getMovieCredits(movieId);
-        setCast(castData);
+        setCast(castData.cast || []);
       } catch (error) {
         console.error('Error fetching cast data:', error);
       }
@@ -28,9 +28,9 @@ const MovieCast = () => {
     <div>
       <h2>Cast</h2>
       {cast.length > 0 ? (
-        <ul>
+        <ul className={s.list}>
           {cast.map((actor) => (
-            <li key={actor.id}>
+            <li key={actor.id} className={s.item}>
               <img
                 src={
                   actor.profile_path
@@ -41,7 +41,10 @@ const MovieCast = () => {
                 width="100"
               />
               <p>{actor.name}</p>
-              <p>Character: {actor.character}</p>
+              <p>
+                Character:
+                <br /> {actor.character}
+              </p>
             </li>
           ))}
         </ul>

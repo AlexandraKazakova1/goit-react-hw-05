@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../services/api';
-
+import s from './MovieReviews.module.css';
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -12,7 +12,7 @@ const MovieReviews = () => {
     const fetchReviews = async () => {
       try {
         const reviewsData = await getMovieReviews(movieId);
-        setReviews(reviewsData);
+        setReviews(reviewsData.results || []);
       } catch (error) {
         console.error('Error fetching reviews:', error);
       }
@@ -25,11 +25,11 @@ const MovieReviews = () => {
     <div>
       <h2>Reviews</h2>
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={s.list}>
           {reviews.map((review) => (
-            <li key={review.id}>
-              <h3>Author: {review.author}</h3>
-              <p>{review.content}</p>
+            <li key={review.id} className={s.item}>
+              <h3 className={s.title}>Author: {review.author}</h3>
+              <p className={s.text}>{review.content}</p>
             </li>
           ))}
         </ul>
